@@ -4,9 +4,11 @@ namespace Krve\Inmobile;
 
 class CurlClient
 {
-    public function get(string $url): string|bool
+    protected ?string $baseUri = null;
+
+    public function __construct(string $baseUri = null)
     {
-        return $this->request('GET', $url);
+        $this->baseUri = $baseUri;
     }
 
     public function post(string $url, ?array $data = null): string|bool
@@ -16,7 +18,9 @@ class CurlClient
 
     protected function request(string $method, string $url, ?array $data = null): string|bool
     {
-        $curl = curl_init($url);
+        $curl = curl_init(
+            sprintf('%s/%s', rtrim($this->baseUri, '/'), ltrim($url, '/'))
+        );
 
         curl_setopt($curl, CURLOPT_HEADER, 0);
         if ($method === 'POST') {

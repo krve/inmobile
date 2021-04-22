@@ -3,9 +3,8 @@
 namespace Krve\Inmobile\Exceptions;
 
 use Exception;
-use Throwable;
 
-class InmobileErrorException extends Exception
+class GatewayErrorException extends Exception
 {
     protected string|int $inmobileErrorCode;
 
