@@ -2,7 +2,9 @@
 
 namespace Krve\Inmobile\Exceptions;
 
-class InvalidTextEncodingException extends \Exception
+use Exception;
+
+class InvalidTextEncodingException extends Exception
 {
 
 }
