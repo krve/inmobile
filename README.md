@@ -12,19 +12,11 @@ use Krve\Inmobile\Message;
 
 $gateway = new Gateway('api-key');
 
-$response = $gateway->send(
+$gateway->send(
     Message::create('Hello World')
         ->from('MyCompany')
         ->to(4500000000)
 );
-
-$response->toArray();
-
-/**
- * [
- *     ['msisdn' => '4500000000', 'id' => 'id-1']
- * ] 
- */
 ```
 
 ### Getting the response from Inmobile
