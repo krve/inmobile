@@ -5,6 +5,7 @@ namespace Tests;
 use Krve\Inmobile\CurlClient;
 use Krve\Inmobile\Exceptions\GatewayErrorException;
 use Krve\Inmobile\Gateway;
+use Krve\Inmobile\Response;
 use Krve\Inmobile\Message;
 use Krve\Inmobile\Recipient;
 use Mockery;
@@ -107,5 +108,19 @@ class GatewayTest extends TestCase
                 ->to('4500000000'),
             'https://example.com/callback'
         );
+    }
+
+    public function test_returns_instance_of_response()
+    {
+        $client = Mockery::mock(CurlClient::class);
+        $gateway = new Gateway('foobar', $client);
+
+        $client->shouldReceive('post')
+            ->once()
+            ->andReturn($this->validResponse());
+
+        $response = $gateway->send(Message::create('Hello World')->to('4500000000'));
+
+        $this->assertInstanceOf(Response::class, $response);
     }
 }

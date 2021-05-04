@@ -28,7 +28,7 @@ class Gateway
             throw new GatewayErrorException('ERROR: response code was ' . $response, (int) $response);
         }
 
-        return $response;
+        return new Response($response, 200);
     }
 
     protected function toXml(Message $message, ?string $statusCallbackUrl = null): string|bool
