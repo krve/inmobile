@@ -16,7 +16,7 @@ class Gateway
         $this->client = $client ?: new CurlClient('https://mm.inmobile.dk');
     }
 
-    public function send(Message $message, string $statusCallbackUrl = null)
+    public function send(Message $message, string $statusCallbackUrl = null): Response
     {
         $response = $this->client->post('/Api/V2/SendMessages', [
             'xml' => $this->toXml($message, $statusCallbackUrl),
@@ -25,7 +25,7 @@ class Gateway
         libxml_use_internal_errors(true);
 
         if (!simplexml_load_string($response)) {
-            throw new GatewayErrorException('ERROR: response code was ' . $response, (int) $response);
+            throw GatewayErrorException::fromCode((int) $response);
         }
 
         return new Response($response, 200);
