@@ -1,3 +1,5 @@
+[![Latest Stable Version](http://poser.pugx.org/krve/inmobile/v)](https://packagist.org/packages/krve/inmobile) [![Total Downloads](http://poser.pugx.org/krve/inmobile/downloads)](https://packagist.org/packages/krve/inmobile) [![Latest Unstable Version](http://poser.pugx.org/krve/inmobile/v/unstable)](https://packagist.org/packages/krve/inmobile) [![License](http://poser.pugx.org/krve/inmobile/license)](https://packagist.org/packages/krve/inmobile)
+
 # Inmobile SMS Gateway
 
 This is a PHP package for sending text messages using [Inmobile](https://www.inmobile.com/).
