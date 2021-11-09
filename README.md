@@ -1,5 +1,7 @@
 # Inmobile SMS Gateway
 
+This repo is deprecated in place of the new InMobile PHP API client: [Official SDK](https://github.com/inMobile/inMobile-PHP-API-Client)
+
 This is a PHP package for sending text messages using [Inmobile](https://www.inmobile.com/).
 Inmobile is a text message gateway.
 
